@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #0d0d1a;
+  --red: #e94560;
+  --yellow: #ffd93d;
+  --font: "Rajdhani", sans-serif;
+}
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: var(--font);
+  background: var(--bg);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: opacity 0.8s;
+}
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.loader-text {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--red);
+}
+#race-canvas {
+  width: 90vw;
+  max-width: 800px;
+  height: 120px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+#dashboard {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.stat span:first-child {
+  font-size: 0.5rem;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+}
+.stat span:last-child {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--red);
+}
+#text-area {
+  width: 90vw;
+  max-width: 800px;
+  margin-top: 1.5rem;
+}
+#text-display {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  line-height: 2;
+  min-height: 80px;
+  margin-bottom: 0.8rem;
+}
+#text-display .correct {
+  color: var(--yellow);
+}
+#text-display .wrong {
+  color: var(--red);
+  text-decoration: underline;
+}
+#text-display .pending {
+  color: rgba(255, 255, 255, 0.3);
+}
+#text-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: #fff;
+  outline: none;
+  resize: none;
+}
+#text-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.2);
+}
+#controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+#controls button {
+  background: rgba(233, 69, 96, 0.15);
+  border: 1px solid var(--red);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#controls button:hover {
+  background: rgba(233, 69, 96, 0.3);
+}
+#controls select {
+  background: #111;
+  color: var(--red);
+  border: 1px solid #333;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  font-family: var(--font);
+}
+#audio-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid rgba(233, 69, 96, 0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.github-badge {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+.github-badge a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  #controls,
+  #hud,
+  .hud,
+  .ui-panel,
+  .ui-overlay,
+  .editor-container,
+  .controls-panel,
+  .floating-toolbar {
+    width: 95vw !important;
+    left: 2.5vw !important;
+    right: auto !important;
+    top: 10px !important;
+    bottom: auto !important;
+    padding: 15px !important;
+    flex-direction: column !important;
+    transform: none !important;
+  }
+  #title,
+  .logo,
+  .title,
+  #main-title {
+    font-size: 1.2rem !important;
+    letter-spacing: 2px !important;
+    top: 10px !important;
+  }
+  #audio-toggle {
+    top: 10px !important;
+    right: 10px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+  }
+  .github-badge {
+    bottom: 5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 0.5rem !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
+  .paper {
+    width: 95vw !important;
+    height: 60vh !important;
+  }
+  canvas {
+    touch-action: none;
+  }
+}
